@@ -1,0 +1,28 @@
+#include <iostream>
+#define print(c) std::cout << c << std::endl
+using namespace std;
+class Node{
+public:
+	Node* left;
+	Node* right;
+	int data;
+	Node(int Data) : left(NULL), right(NULL), data(Data) {}
+};
+Node* getNewNode(int data) {
+	Node* tempNode = new Node(data);
+	return tempNode;
+}
+
+int main()
+{
+	Node* nd = getNewNode(1);
+	std::cout << "MainBranch child of MainBranch appended with 1" << endl;
+	nd->left = getNewNode(2);
+	std::cout << "Left Branch child of MainBranch appended with 2" << endl;
+	nd->right = getNewNode(3);
+	std::cout << "right Branch appended with 3" << endl;
+	nd->left->left = getNewNode(4);
+	nd->right->right = getNewNode(5);
+	nd->right->left = getNewNode(6);
+	return 0;
+}
